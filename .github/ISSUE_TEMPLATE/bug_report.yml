@@ -1,0 +1,67 @@
+name: Сообщение об ошибке
+description: Сообщить о воспроизводимой ошибке SMENORA
+title: "[BUG] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Не публикуйте рабочий data.json, персональные данные, табели, зарплатные документы, PIN, токены, пароли или ключи.
+  - type: input
+    id: version
+    attributes:
+      label: Версия SMENORA
+      placeholder: "например, 0.3.98"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: ОС
+      placeholder: "например, Windows 11 x64 / Windows 7 SP1 x64"
+    validations:
+      required: true
+  - type: dropdown
+    id: launch
+    attributes:
+      label: Способ запуска
+      options:
+        - Установленный EXE
+        - Portable / архив
+        - Python / исходный запуск
+        - Windows 7 legacy
+        - Другое
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Опишите точную последовательность действий.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемый результат
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактический результат
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Обезличенная диагностика
+      description: Вставьте только безопасный текст ошибки или обезличенный лог.
+      render: shell
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Проверка приватности
+      options:
+        - label: Я проверил(а), что в сообщении и вложениях нет персональных, кадровых данных, PIN, токенов, паролей или ключей.
+          required: true
